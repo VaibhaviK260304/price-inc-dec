@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color:  #f7f7f7;
+        }
+        .buds{
+            height: 150px;
+            display: block;
+            margin: 10px auto;
+            background-color: skyblue;
+            border-radius: 20px;
+            padding: 10px 45px;
+        }
+        .product-card{
+            background-color: white;
+            width: 220px;
+            text-align: center;
+            padding: 3px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,.2);
+            display: block;
+            margin: 30px auto;
+        }
+        .title{
+            font-size: 18px;
+
+        }
+        .cardbody{
+            margin-left: 6px;
+        }
+        .description{
+            font-size: 15px;
+        }
+        .price{
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .btn{
+            color:black;
+            cursor: pointer;
+            background-color: skyblue ;
+            border: none;
+            padding: 10px 16px;
+            font-size:13px;
+            transition: all 0.2s ease-in-out;
+            outline: none;
+            border-radius: 20px;
+        }
+        .btn-quantity{
+            height: 20px;
+        }
+        .btn-container-quantity{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .no{
+            font-size: 20px;
+            margin: auto 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="realme_buds_air_5-removebg-preview.png" class="buds"/>
+        
+        <div class="cardbody">
+        <u><h1 class="title">Realme Buds Air 5</h1></u>
+                <p  class="description">
+                    50dB ANC with 12.4mm Mega Titanized Dynamic Bass Boost Driver<br/>
+                    Battery life: 38 hrs<br/>
+                    Bluetooth Version: 5.3<br/>
+                    Wireless range: 10m
+                </p>
+                <p class="price">
+                    <b><u>PRICE</u> : </b><del> Rs.5,999 </del><br/><br/><b>Rs : 3,699/-</b>
+                </p>
+
+                <div class="btn-container-quantity">
+                    <img src="minus.png" class="btn-quantity" onclick="dec()"/>
+                    <span class="no" id="qty">1</span>
+                    <img src="plus.png" class="btn-quantity"  onclick="inc()" />
+                </div>
+        
+                <p id="quantity-text">1 x 3699</p>
+                <p id="total-text">Total : 3699</p> 
+
+                <button type="button" class="btn">
+                    Buy Now
+                </button>
+        </div>
+        
+        <script>
+            function inc()
+            {
+                const quantitytext  = document.getElementById("qty");
+                const showquantity = document.getElementById("quantity-text");
+                const  totaltext = document.getElementById("total-text") ;
+
+                let quantity = parseInt(quantitytext.innerText);
+
+                if(quantity<10)
+                {
+                    quantitytext.innerText = ++quantity;
+                }
+                else{
+                    alert("Maximum Quantity Reached!");
+                }
+                showquantity.innerText=`${quantity}x3699`;
+                totaltext.innerText= `Total :  ${quantity*3699}`;
+            }
+            function dec()
+            {
+                const quantitytext  = document.getElementById("qty");
+                const showquantity = document.getElementById("quantity-text");
+                const  totaltext = document.getElementById("total-text") ;
+
+                let quantity = parseInt(quantitytext.innerText);
+                
+                if(quantity > 1)
+                {
+                quantitytext.innerText = --quantity;
+                }
+                else
+                {
+                    alert('Quantity cannot be less than 1');
+                }
+                showquantity.innerText=`${quantity}x3699`;
+                totaltext.innerText= `Total :  ${quantity*3699}`;
+            }
+        </script>
+    </div>
+</body>
+</html>
